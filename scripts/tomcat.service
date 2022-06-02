@@ -1,0 +1,20 @@
+# Copyright (c) 2022 Oracle and/or its affiliates.
+[Unit]
+Description=Tomcat Service
+${requires_u01_mount}
+${after_u01_mount}
+
+[Service]
+Type=oneshot
+User=tomcat
+Group=tomcat
+RemainAfterExit=yes
+ExecStart=/usr/bin/echo 'Starting Tomcat Server'
+ExecStart=nohup /u01/apache-tomcat-${tomcat_version}/bin/startup.sh &
+ExecStart=/usr/bin/echo 'Tomcat has been started'
+ExecStop=/usr/bin/echo 'Stopping Tomcat Server'
+ExecStop=nohup /u01/apache-tomcat-${tomcat_version}/bin/shutdown.sh &
+ExecStop=/usr/bin/echo 'Tomcat has been stopped'
+
+[Install]
+WantedBy=multi-user.target
