@@ -24,7 +24,9 @@ This Module has the following folder structure:
   
   - [Tomcat multi-node + custom network injected into module](examples/tomcat-ha-use-existing-network): This is an example of how to use the oci-arch-tomcat module to deploy tomcat HA (multi-node) with network cloud infrastrucutre elements injected into the module.
 
-  - [Tomcat multi-node + ADB + custom network + Bastion Service injected into module](examples/tomcat-ha-adb-use-existing-network-and-injected-bastion-service): This is an example of how to use the oci-arch-tomcat module to deploy tomcat HA (multi-node) with ADB and network cloud infrastrucutre elements + Bastion Service injected into the module.
+  - [Tomcat multi-node + OCI ADB + custom network + Bastion Service injected into module](examples/tomcat-ha-adb-use-existing-network-and-injected-bastion-service): This is an example of how to use the oci-arch-tomcat module to deploy tomcat HA (multi-node) with OCI Autonomous DB (ADB) and network cloud infrastrucutre elements + Bastion Service injected into the module.
+
+  - [Tomcat multi-node + OCI MDS + custom network + Bastion Service injected into module](examples/tomcat-ha-mds-use-existing-network-and-injected-bastion-service): This is an example of how to use the oci-arch-tomcat module to deploy tomcat HA (multi-node) with OCI MySQL Database System (MDS) and network cloud infrastrucutre elements + Bastion Service injected into the module.
 
 To deploy tomcat using this Module with minimal effort use this:
 
@@ -80,6 +82,19 @@ bastion_server_public_ip | If inject_bastion_server_public_ip is set to TRUE the
 use_shared_storage | If numberOfNodes set to 2 or more then you can use shared NFS on OCI FSS (value TRUE). If you want to replicate tomcat by yourself (for example with rsync) then you can you can set the value to FALSE.
 label_prefix | To create unique identifier for multiple clusters in a compartment.
 defined_tags | Defined tags to be added to compute instances.
+oci_adb_setup  | If you are planning to deploy application based on OCI Autonomous DB (ADB) then you will need Oracle Instant Client and proper context.xml file to include JNDI resource (set value to TRUE). 
+oci_adb_username | If oci_adb_setup is set to TRUE then you can define ADB username.
+oci_adb_password | If oci_adb_setup is set to TRUE then you can define ADB password.
+oci_adb_db_name | If oci_adb_setup is set to TRUE then you can define ADB db name.
+oci_adb_tde_wallet_zip_file | If oci_adb_setup is set to TRUE then you can define ADB wallet zip file name.
+oci_adb_wallet_content | If oci_adb_setup is set to TRUE then you can define ADB wallet content.
+oracle_instant_client_version | If oci_adb_setup is set to TRUE then you can define Oracle Instant Client version (by default 19.10).
+oracle_instant_client_version_short | If oci_adb_setup is set to TRUE then you can define Oracle Instant Client short version (by default 19.10).
+oci_mds_setup  | If you are planning to deploy application based on OCI MySQL Database System (MDS) then you will need Oracle Instant Client and proper context.xml file to include JNDI resource (set value to TRUE). 
+oci_mds_db_name | If oci_mds_setup is set to TRUE then you can define MDS database name.
+oci_mds_username | If oci_mds_setup is set to TRUE then you can define MDS username.
+oci_mds_password | If oci_mds_setup is set to TRUE then you can define MDS password.
+oci_mds_ip_address | If oci_mds_setup is set to TRUE then you can define MDS IP Address.
 
 ## Contributing
 This project is open source.  Please submit your contributions by forking this repository and submitting a pull request!  Oracle appreciates any contributions that are made by the open source community.

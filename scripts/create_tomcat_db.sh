@@ -51,8 +51,10 @@ if [[ $oci_mds_setup == "true" ]]; then
 	yum install -y mysql-shell
 	echo '-[100%]-> mysql-shell installed.' 
 
-	echo '--> Install of mysql-connector-java...'
+	echo '--> Install of mysql-connector-java and copy to Tomcat lib directory...'
 	yum install -y mysql-connector-java
-	echo '-[100%]-> mysql-connector-java installed.' 
+	cp /usr/share/java/mysql-connector-java.jar /u01/apache-tomcat-${tomcat_version}/lib/
+	chown tomcat:tomcat /u01/apache-tomcat-${tomcat_version}/lib/mysql-connector-java.jar
+	echo '-[100%]-> mysql-connector-java installed and copied.' 
 
 fi

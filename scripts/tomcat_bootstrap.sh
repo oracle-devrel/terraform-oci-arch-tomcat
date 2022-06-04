@@ -41,7 +41,6 @@ export oci_mds_setup='${oci_mds_setup}'
 if [[ $oci_mds_setup == "true" ]]; then
 	echo '--> Prepare Tomcat context.xml for OCI MDS...'
 	cp /home/opc/context_mds.xml /u01/apache-tomcat-${tomcat_version}/conf/context.xml
-	cp /usr/share/java/mysql-connector-java.jar /u01/apache-tomcat-${tomcat_version}/lib/
 	echo '-[100%]-> MDS context.xml in place.'
 fi	
 
