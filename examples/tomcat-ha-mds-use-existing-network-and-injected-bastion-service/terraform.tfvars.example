@@ -10,6 +10,6 @@ region = "<region>"
 # Compartment
 compartment_ocid = "<compartment_ocid>"
 
-# ADB Passwords 
-oci_adb_password = "<oci_adb_password>"
-oci_adb_admin_password = "<oci_adb_admin_password>"
+# MDS Passwords 
+oci_mds_password = "<oci_mds_password>"
+oci_mds_admin_password = "<oci_mds_admin_password>"

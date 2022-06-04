@@ -115,54 +115,56 @@ variable "use_shared_storage" {
   default     = true
 }
 
-variable "oci_adb_cpu_core_count" {
-  default = 1
+variable "oci_mds_shape" {
+    default = "MySQL.VM.Standard.E3.1.8GB"
 }
 
-variable "oci_adb_data_storage_size_in_tbs" {
-  default = 1
+variable "oci_mds_db_name" {
+  default = "tomcatmds"
 }
 
-variable "oci_adb_db_version" {
-  default = "19c"
+variable "oci_mds_username" {
+  default = "tomcatuser"
+}
+    
+variable "oci_mds_password" {
 }
 
-variable "oci_adb_name" {
-  default = "tomcatadb1"
-}
-
-variable "oci_adb_license_model" {
-  default = "LICENSE_INCLUDED"
-}
-
-variable "oci_adb_private_endpoint_label" {
-  default = "adbPrivateEndpoint"
-}
-
-variable "oracle_instant_client_version" {
-  default = "19.10"
-}
-
-variable "oracle_instant_client_version_short" {
-  default = "19.10"
-}
-
-variable "oci_adb_tde_wallet_zip_file" {
-  default = "tde_wallet_tomcatadb.zip"
-}
-
-variable "oci_adb_username" {
-  default = "todouser"
-}
-
-variable "oci_adb_password" {
-}
-
-variable "oci_adb_admin_username" {
+variable "oci_mds_admin_username" {
+  description = "MySQL Database Service Username"
   default = "admin"
 }
 
-variable "oci_adb_admin_password" {
+variable "oci_mds_admin_password" {
+  description = "Password for the admin user for MySQL Database Service"
 }
 
+variable "oci_mds_data_storage_size_in_gb" {
+  default = 50
+}
+
+variable "oci_mds_description" {
+  description = "MySQL DB System for magento-MDS"
+  default = "MySQL DB System for magento-MDS"
+}
+
+variable "oci_mds_display_name" {
+  description = "MySQL DB System display name"
+  default = "magentoMDS"
+}
+
+variable "oci_mds_fault_domain" {
+  description = "The fault domain on which to deploy the Read/Write endpoint. This defines the preferred primary instance."
+  default = "FAULT-DOMAIN-1"
+}   
+
+variable "oci_mds_hostname_label" {
+  description = "The hostname for the primary endpoint of the DB System. Used for DNS. The value is the hostname portion of the primary private IP's fully qualified domain name (FQDN) (for example, dbsystem-1 in FQDN dbsystem-1.subnet123.vcn1.oraclevcn.com). Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 1123."
+  default = "magentoMDS"
+}
+   
+variable "oci_mds_maintenance_window_start_time" {
+  description = "The start of the 2 hour maintenance window. This string is of the format: {day-of-week} {time-of-day}. {day-of-week} is a case-insensitive string like mon, tue, etc. {time-of-day} is the Time portion of an RFC3339-formatted timestamp. Any second or sub-second time data will be truncated to zero."
+  default = "SUNDAY 14:30"
+}
 

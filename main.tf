@@ -32,6 +32,7 @@ data "template_file" "create_tomcat_db" {
   template = file("${path.module}/scripts/create_tomcat_db.sh")
 
   vars = {
+    tomcat_version                      = var.tomcat_version
     # OCI ADB 
     oci_adb_setup                       = var.oci_adb_setup
     oci_adb_username                    = var.oci_adb_username

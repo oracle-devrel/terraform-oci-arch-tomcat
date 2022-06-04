@@ -1,6 +1,6 @@
-## Create Tomcat multi-node + ADB + custom network & Bastion Service injected into module
-This is an example of how to use the oci-arch-tomcat module to deploy Tomcat HA (3 nodes) with OCI Autonomous DB (ADB) and network cloud infrastructure elements + Bastion Service injected into the module. On top of that code will deploy demo JEE application which is using ADB as persistence tier.
-  
+## Create Tomcat multi-node + MDS + custom network & Bastion Service injected into module
+This is an example of how to use the oci-arch-tomcat module to deploy Tomcat HA (3 nodes) with OCI MySQL Database System (MDS) and network cloud infrastructure elements + Bastion Service injected into the module. On top of that code will deploy demo JEE application which is using MDS as persistence tier.
+
 ### Using this example
 Update terraform.tfvars with the required information.
 
@@ -26,8 +26,8 @@ region = "<oci_region>"
 compartment_ocid = "<compartment_ocid>"
 
 # ADB Passwords 
-oci_adb_password = "<oci_adb_password>"
-oci_adb_admin_password = "<oci_adb_admin_password>"
+oci_mds_password = "<oci_mds_password>"
+oci_mds_admin_password = "<oci_mds_admin_password>"
 ````
 
 View what Terraform plans do before actually doing it:
@@ -43,7 +43,7 @@ $ terraform apply -auto-approve
 After the deployment is finished, you can test if your Tomcat have been deployed correctly. You can access the tomcat JEE demo application. Pick up the value of the tomcat_demo_app_URL:
 
 ```
-tomcat_demo_app_URL = http://129.159.65.38/todoapp/list
+tomcat_demo_app_URL = http://193.122.204.54/todoapp/list
 ```
 
 Then copy it into Web browser. Here is the example of the succesfull outcome:
