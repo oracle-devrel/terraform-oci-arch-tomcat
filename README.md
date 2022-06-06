@@ -79,6 +79,7 @@ inject_bastion_service_id | Instead of counting on module to create Bastion Serv
 bastion_service_id | If inject_bastion_service_id is set to TRUE then you can pass here Bastion Service OCID as input.
 inject_bastion_server_public_ip  | Instead of counting on module to create Bastion VM you can pass Bastion Host Public IP Address as input (set value to TRUE).
 bastion_server_public_ip | If inject_bastion_server_public_ip is set to TRUE then you can pass here Bastion Host Public IP Address.
+bastion_server_private_key | If inject_bastion_server_public_ip is set to TRUE then you can pass here Bastion Host Private Key.
 use_shared_storage | If numberOfNodes set to 2 or more then you can use shared NFS on OCI FSS (value TRUE). If you want to replicate tomcat by yourself (for example with rsync) then you can you can set the value to FALSE.
 label_prefix | To create unique identifier for multiple clusters in a compartment.
 defined_tags | Defined tags to be added to compute instances.

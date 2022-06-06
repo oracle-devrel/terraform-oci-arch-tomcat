@@ -879,7 +879,7 @@ resource "null_resource" "tomcat_provisioner_with_injected_bastion_server_public
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       bastion_host        = var.bastion_server_public_ip
       bastion_user        = var.vm_user
-      bastion_private_key = tls_private_key.public_private_key_pair.private_key_pem
+      bastion_private_key = var.bastion_server_private_key == "" ? tls_private_key.public_private_key_pair.private_key_pem : var.bastion_server_private_key
     }
   }
 
@@ -897,7 +897,7 @@ resource "null_resource" "tomcat_provisioner_with_injected_bastion_server_public
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       bastion_host        = var.bastion_server_public_ip
       bastion_user        = var.vm_user
-      bastion_private_key = tls_private_key.public_private_key_pair.private_key_pem
+      bastion_private_key = var.bastion_server_private_key == "" ? tls_private_key.public_private_key_pair.private_key_pem : var.bastion_server_private_key
     }
 
     inline = [
@@ -919,7 +919,7 @@ resource "null_resource" "tomcat_provisioner_with_injected_bastion_server_public
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       bastion_host        = var.bastion_server_public_ip
       bastion_user        = var.vm_user
-      bastion_private_key = tls_private_key.public_private_key_pair.private_key_pem
+      bastion_private_key = var.bastion_server_private_key == "" ? tls_private_key.public_private_key_pair.private_key_pem : var.bastion_server_private_key
     }
   }
 
@@ -936,7 +936,7 @@ resource "null_resource" "tomcat_provisioner_with_injected_bastion_server_public
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       bastion_host        = var.bastion_server_public_ip
       bastion_user        = var.vm_user
-      bastion_private_key = tls_private_key.public_private_key_pair.private_key_pem
+      bastion_private_key = var.bastion_server_private_key == "" ? tls_private_key.public_private_key_pair.private_key_pem : var.bastion_server_private_key
     }
   }
 
@@ -953,7 +953,7 @@ resource "null_resource" "tomcat_provisioner_with_injected_bastion_server_public
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       bastion_host        = var.bastion_server_public_ip
       bastion_user        = var.vm_user
-      bastion_private_key = tls_private_key.public_private_key_pair.private_key_pem
+      bastion_private_key = var.bastion_server_private_key == "" ? tls_private_key.public_private_key_pair.private_key_pem : var.bastion_server_private_key
     }
   }
 
@@ -970,7 +970,7 @@ resource "null_resource" "tomcat_provisioner_with_injected_bastion_server_public
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       bastion_host        = var.bastion_server_public_ip
       bastion_user        = var.vm_user
-      bastion_private_key = tls_private_key.public_private_key_pair.private_key_pem
+      bastion_private_key = var.bastion_server_private_key == "" ? tls_private_key.public_private_key_pair.private_key_pem : var.bastion_server_private_key
     }
   }
 
@@ -987,7 +987,7 @@ resource "null_resource" "tomcat_provisioner_with_injected_bastion_server_public
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       bastion_host        = var.bastion_server_public_ip
       bastion_user        = var.vm_user
-      bastion_private_key = tls_private_key.public_private_key_pair.private_key_pem
+      bastion_private_key = var.bastion_server_private_key == "" ? tls_private_key.public_private_key_pair.private_key_pem : var.bastion_server_private_key
     }
   }
 
@@ -1004,7 +1004,7 @@ resource "null_resource" "tomcat_provisioner_with_injected_bastion_server_public
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       bastion_host        = var.bastion_server_public_ip
       bastion_user        = var.vm_user
-      bastion_private_key = tls_private_key.public_private_key_pair.private_key_pem
+      bastion_private_key = var.bastion_server_private_key == "" ? tls_private_key.public_private_key_pair.private_key_pem : var.bastion_server_private_key
     }
   }
 
@@ -1018,7 +1018,7 @@ resource "null_resource" "tomcat_provisioner_with_injected_bastion_server_public
       private_key         = tls_private_key.public_private_key_pair.private_key_pem
       bastion_host        = var.bastion_server_public_ip
       bastion_user        = var.vm_user
-      bastion_private_key = tls_private_key.public_private_key_pair.private_key_pem
+      bastion_private_key = var.bastion_server_private_key == "" ? tls_private_key.public_private_key_pair.private_key_pem : var.bastion_server_private_key
     }
 
     inline = [
