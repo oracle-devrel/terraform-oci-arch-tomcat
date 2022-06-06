@@ -2,8 +2,7 @@
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
 module "oci-arch-tomcat" {
-  #source                             = "github.com/oracle-devrel/terraform-oci-arch-tomcat"
-  source                              = "../../"
+  source                             = "github.com/oracle-devrel/terraform-oci-arch-tomcat"
   tenancy_ocid                        = var.tenancy_ocid
   vcn_id                              = oci_core_virtual_network.tomcat_vcn.id
   numberOfNodes                       = var.numberOfNodes

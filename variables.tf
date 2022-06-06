@@ -110,6 +110,10 @@ variable "bastion_server_public_ip" {
   default = ""
 }
 
+variable "bastion_server_private_key" {
+  default = ""
+}
+
 variable "use_shared_storage" {
   description = "Decide if you want to use shared NFS on OCI FSS"
   default     = true
