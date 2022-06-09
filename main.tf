@@ -1,6 +1,15 @@
 ## Copyright (c) 2022, Oracle and/or its affiliates. 
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
+terraform {
+  required_version = ">= 1.0"
+  required_providers {
+    oci = {
+      source  = "oracle/oci"
+    }
+  }
+}
+
 resource "tls_private_key" "public_private_key_pair" {
   algorithm = "RSA"
 }
@@ -387,6 +396,9 @@ resource "oci_core_public_ip" "tomcat_public_ip_for_single_node" {
   #  private_ip_id  = var.numberOfNodes == 1 ? data.oci_core_private_ips.tomcat_private_ips1.private_ips[0]["id"] : null
   private_ip_id = data.oci_core_private_ips.tomcat_private_ips1.private_ips[0]["id"]
   defined_tags  = var.defined_tags
+  lifecycle {
+    ignore_changes = [defined_tags]
+  }
 }
 
 resource "oci_core_public_ip" "tomcat_public_ip_for_multi_node" {
@@ -395,6 +407,9 @@ resource "oci_core_public_ip" "tomcat_public_ip_for_multi_node" {
   display_name   = "tomcat_public_ip_for_multi_node"
   lifetime       = "RESERVED"
   defined_tags   = var.defined_tags
+  lifecycle {
+    ignore_changes = [defined_tags]
+  }
 }
 
 resource "oci_core_instance" "bastion_instance" {
