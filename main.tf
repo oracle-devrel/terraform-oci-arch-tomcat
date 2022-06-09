@@ -112,12 +112,12 @@ data "template_cloudinit_config" "cloud_init" {
 }
 
 locals {
-  tomcat_service          = "~/tomcat.service"
-  security_script         = "~/configure_local_security.sh"
-  create_tomcat_db        = "~/create_tomcat_db.sh"
-  tomcat_bootstrap        = "~/tomcat_bootstrap.sh"
-  tomcat_context_xml_adb  = "~/context_adb.xml"
-  tomcat_context_xml_mds  = "~/context_mds.xml"
+  tomcat_service          = "/home/${var.vm_user}/tomcat.service"
+  security_script         = "/home/${var.vm_user}/configure_local_security.sh"
+  create_tomcat_db        = "/home/${var.vm_user}/create_tomcat_db.sh"
+  tomcat_bootstrap        = "/home/${var.vm_user}/tomcat_bootstrap.sh"
+  tomcat_context_xml_adb  = "/home/${var.vm_user}/context_adb.xml"
+  tomcat_context_xml_mds  = "/home/${var.vm_user}/context_mds.xml"
 }
 
 data "oci_core_subnet" "tomcat_subnet_ds" {
